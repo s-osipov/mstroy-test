@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "npm run dev --prefix MStroy",
+    "build": "npm run build --prefix MStroy",
+    "preview": "npm run preview --prefix MStroy",
+    "type-check": "npm run type-check --prefix MStroy"
+  },
+  "dependencies": {
+    "ag-grid-vue3": "^36.0.0",
+    "pinia": "^3.0.4"
+  }
+}
