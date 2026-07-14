@@ -3,7 +3,6 @@ import { computed, onMounted, ref, shallowRef } from 'vue'
 import { AgGridVue } from 'ag-grid-vue3'
 import type {
   ColDef,
-  FirstDataRenderedEvent,
   GetDataPath,
   GridApi,
   GridReadyEvent,
@@ -89,27 +88,8 @@ const columnDefs = ref<ColDef<TreeGridRow>[]>([
   },
 ])
 
-function ensureColumnOrder(api: GridApi<TreeGridRow>) {
-  const rowNumColumn = api.getColumn('rowNum')
-  if (!rowNumColumn || rowNumColumn.getLeft() === 0) return
-
-  api.moveColumns(['rowNum'], 0)
-}
-
-function refreshRowNumbers() {
-  gridApi.value?.refreshCells({ columns: ['rowNum'] })
-}
-
 function onGridReady(event: GridReadyEvent<TreeGridRow>) {
   gridApi.value = event.api
-}
-
-function onFirstDataRendered(event: FirstDataRenderedEvent<TreeGridRow>) {
-  ensureColumnOrder(event.api)
-}
-
-function onRowGroupChanged() {
-  refreshRowNumbers()
 }
 
 onMounted(() => {
@@ -145,9 +125,6 @@ onMounted(() => {
       row-selection="single"
       animate-rows
       @grid-ready="onGridReady"
-      @first-data-rendered="onFirstDataRendered"
-      @row-group-opened="onRowGroupChanged"
-      @row-group-closed="onRowGroupChanged"
     />
   </section>
 </template>
