@@ -122,6 +122,7 @@ onMounted(() => {
       :header-height="HEADER_HEIGHT"
       :row-height="ROW_HEIGHT"
       :suppress-cell-focus="true"
+      :locale-text="{ noRowsToShow: TEXTS.noRowsToShow }"
       row-selection="single"
       animate-rows
       @grid-ready="onGridReady"

@@ -3,5 +3,6 @@
   "columnRowNum": "№ п/п",
   "columnLabel": "Наименование",
   "categoryGroup": "Группа",
-  "categoryItem": "Элемент"
+  "categoryItem": "Элемент",
+  "noRowsToShow": "Нет данных для отображения"
 }
